@@ -21,13 +21,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Anhxa();
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                plogin.getforlogin(email.getText().toString(),password.getText().toString());
-//                Toast.makeText(MainActivity.this,"hello",Toast.LENGTH_LONG).show();
-            }
-        });
+//        login.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                plogin = new presenterLogin(this);
+////                plogin.getforlogin(email.getText().toString(),password.getText().toString());
+////                Toast.makeText(MainActivity.this,"hello",Toast.LENGTH_LONG).show();
+//            }
+//        });
     }
 
     private void Anhxa() {
@@ -35,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.edtemail);
         login = (Button) findViewById(R.id.btnlogin);
         dangky = findViewById(R.id.txtRegistin);
-
+        plogin= new presenterLogin(this);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    plogin.getforlogin(email.getText().toString(),password.getText().toString());
+            }
+        });
     }
 }
