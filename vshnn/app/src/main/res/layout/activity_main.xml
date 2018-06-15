@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/hinhnen"
+    tools:context=".Activity.MainActivity">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:src="@drawable/logo" />
+    <TextView
+        android:layout_marginTop="5dp"
+        android:textColor="#686464"
+        android:textSize="7sp"
+        android:text="Viện sinh học công nghệ - IOT SOLUTION"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:drawableLeft="@drawable/iconchiecla"
+
+        android:textColorHint="#4e6c45"
+        android:layout_marginTop="5dp"
+        android:id="@+id/txttaikhoan"
+        android:hint="Tài khoản"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <EditText
+        android:drawableLeft="@drawable/iconpassword"
+
+        android:textColorHint="#4e6c45"
+        android:hint="Mật khẩu"
+        android:layout_marginTop="5dp"
+        android:inputType="textPassword"
+        android:id="@+id/edtpassword"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+    <Button
+
+        android:textColor="#fff"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_button"
+        android:id="@+id/btnlogin"
+        android:textStyle="bold"
+        android:text="ĐĂNG NHẬP"
+        android:layout_width="150dp"
+        android:layout_height="50dp" />
+    <TextView
+        android:textColor="#2e4029"
+        android:textStyle="italic"
+        android:layout_marginTop="15dp"
+        android:text="Tạo một tài khoản mới. Click vào đây!!!"
+        android:id="@+id/txtRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
