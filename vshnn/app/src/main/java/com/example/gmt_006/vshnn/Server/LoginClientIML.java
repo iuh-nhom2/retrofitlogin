@@ -9,7 +9,9 @@ import android.widget.Toast;
 import com.example.gmt_006.vshnn.APIUltis.ApiConstant;
 import com.example.gmt_006.vshnn.Activity.GreenHouseMainActivity;
 import com.example.gmt_006.vshnn.Activity.MainActivity;
+import com.example.gmt_006.vshnn.ListenerInterface.GetResultGreenHuose;
 import com.example.gmt_006.vshnn.ListenerInterface.OnPostResultLogin;
+import com.example.gmt_006.vshnn.Model.GrenHouse;
 import com.example.gmt_006.vshnn.Model.Userlogin;
 
 import org.json.JSONArray;
@@ -36,6 +38,12 @@ public class LoginClientIML {
     private Activity mainActivity;
     private Retrofit retrofit;
     MainActivity main;
+    Context context;
+    public static String token = "";
+
+    public LoginClientIML(Context context) {
+        this.context = context;
+    }
 
     public LoginClientIML(Activity ac) {
         retrofit = new Retrofit.Builder().baseUrl(ApiConstant.ServerURL).build();
@@ -48,6 +56,8 @@ public class LoginClientIML {
         }
         return instance;
     }
+
+
     public void getLoginUser(String email, String pass, final OnPostResultLogin callback ){
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addInterceptor(new Interceptor() {
@@ -82,14 +92,15 @@ public class LoginClientIML {
                     int status= Integer.parseInt(object.getString("status"));
                     if(status==200)
                     {
-                        String token = object.getString("token");
+                        token = object.getString("token");
                         Log.d("Token",token);
                         Log.d("Message:",data);
                         Log.d("Login:","Login succes");
                         Toast.makeText(mainActivity,"Login success",Toast.LENGTH_LONG).show();
 
 
-//                        JSONArray arr = new JSONArray(data);
+
+                        callback.LoginSuccess();
 //                        ArrayList<Userlogin> ret = Userlogin.getinforUserLogin(arr);
 //                        ret.size();
 //                        callback.LoginSuccess(ret);
@@ -100,6 +111,7 @@ public class LoginClientIML {
                     else if(status==400)
                     {
                         callback.LoginFailed("Login Failed");
+
 //                        Toast.makeText(mainActivity,"Login Failed",Toast.LENGTH_LONG).show();
 
                     }

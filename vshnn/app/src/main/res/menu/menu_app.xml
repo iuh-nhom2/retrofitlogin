@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:title="Bảng điều khiển" android:icon="@drawable/dashboar" android:id="@+id/itemdieukhien"/>
+    <item android:title="Nhà kính" android:icon="@drawable/dieukhien" android:id="@+id/itemnhakinh"/>
+    <item android:title="Vườn" android:icon="@drawable/dieukhien" android:id="@+id/itemvuon"/>
+    <item android:title="Tài khoản" android:icon="@drawable/user" android:id="@+id/itemuser"/>
+    <item android:title="Thông tin" android:icon="@drawable/information" android:id="@+id/itemInfor"/>
+    <item android:title="Đăng xuất" android:icon="@drawable/logout" android:id="@+id/itemlogout"/>
+</menu>

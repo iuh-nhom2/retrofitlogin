@@ -11,18 +11,19 @@
 
     <ImageView
         android:layout_width="60dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:src="@drawable/logo" />
     <TextView
+        android:textStyle="italic"
         android:layout_marginTop="5dp"
-        android:textColor="#686464"
-        android:textSize="7sp"
+        android:textColor="#8e8a8a"
+        android:textSize="15sp"
         android:text="Viện sinh học công nghệ - IOT SOLUTION"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <EditText
         android:drawableLeft="@drawable/iconchiecla"
-
+        android:textColor="#ffff"
         android:textColorHint="#4e6c45"
         android:layout_marginTop="5dp"
         android:id="@+id/txttaikhoan"
@@ -31,7 +32,7 @@
         android:layout_height="40dp" />
     <EditText
         android:drawableLeft="@drawable/iconpassword"
-
+        android:textColor="#ffff"
         android:textColorHint="#4e6c45"
         android:hint="Mật khẩu"
         android:layout_marginTop="5dp"
