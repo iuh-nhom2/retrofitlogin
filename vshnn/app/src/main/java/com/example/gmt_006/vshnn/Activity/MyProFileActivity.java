@@ -9,48 +9,42 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
-import com.example.gmt_006.vshnn.Presenter.PresenterGreenHouse;
 import com.example.gmt_006.vshnn.R;
-import com.example.gmt_006.vshnn.Server.GetGreenHuoseIML;
-import com.example.gmt_006.vshnn.Server.LoginClientIML;
 
-
-public class GreenHouseMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
+public class MyProFileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     NavigationView navigationview;
 
     private ActionBarDrawerToggle mTonggle;
-    private RecyclerView recyclerView;
-    private PresenterGreenHouse presenterGreenHouse;
-    LinearLayoutManager linearLayoutManager;
-
+    private EditText edtname,edtfullname,edtemail,edtnamfull,edtemailuser,edtwebsite,edtAddress,edtPhone;
+    TextView txtdktk;
+    private String us="";
+    private Button btneditfile;
+    String id="";
+    String password ="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_green_house_main);
+        setContentView(R.layout.activity_my_pro_file);
         Anhxa();
-
         mTonggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(mTonggle);
         mTonggle.syncState();
         Actionbar();
         navigationview.setNavigationItemSelectedListener(this);
-
-
     }
-
-
 
     private void Actionbar() {
         setSupportActionBar(toolbar);
@@ -71,24 +65,16 @@ public class GreenHouseMainActivity extends AppCompatActivity implements Navigat
 
     }
 
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_app,menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
     private void Anhxa() {
-
         toolbar =  findViewById(R.id.toolbarmanhinhchinh);
         drawerLayout =  findViewById(R.id.drawerLayout);
         navigationview  = findViewById(R.id.navigationview);
-
-
-        recyclerView = findViewById(R.id.recyclerview);
-//
-        linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        presenterGreenHouse = new PresenterGreenHouse(this);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(presenterGreenHouse.getGrenHouseAdappter());
-        if(presenterGreenHouse!=null){
-            presenterGreenHouse.getListGreenhuose("2");
-        }
 
     }
 
@@ -99,21 +85,16 @@ public class GreenHouseMainActivity extends AppCompatActivity implements Navigat
         }
         switch (item.getItemId()){
             case R.id.itemdieukhien:
-                Toast.makeText(GreenHouseMainActivity.this,"Go to điều khiển",Toast.LENGTH_LONG).show();
+                Toast.makeText(MyProFileActivity.this,"Go to điều khiển",Toast.LENGTH_LONG).show();
                 break;
             case R.id.itemInfor:
-                Toast.makeText(GreenHouseMainActivity.this,"Go to infor",Toast.LENGTH_LONG).show();
-                Intent intent1 = new Intent(GreenHouseMainActivity.this,MyProFileActivity.class);
-                startActivity(intent1);
+                Toast.makeText(MyProFileActivity.this,"Go to infor",Toast.LENGTH_LONG).show();
                 break;
             case  R.id.itemnhakinh:
-                Intent intent = new Intent(GreenHouseMainActivity.this,GreenHouseMainActivity.class);
+                Intent intent = new Intent(MyProFileActivity.this,GreenHouseMainActivity.class);
                 startActivity(intent);
                 break;
         }
         return false;
     }
-
-
-
 }
